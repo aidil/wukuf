@@ -1,0 +1,23 @@
+<div class="wukuf-countdown">
+	<div class="title" style="letter-spacing:  1px;">Wukuf</div>
+
+	{% if date_count_status == "future" %}
+
+		<div class="days-left" style="font-size: 24px; ">{{ days_left }}</div>
+		<div class="days-left-text" style="font-size: 12px;">{{ fields.field_future_format.content }}</div>
+
+	{% elseif date_count_status == "now" %}
+
+		<div class="days-left" style="font-size: 24px; "></div>
+		<div class="days-left-text" style="font-size: 12px;">{{ fields.field_wukuf_is_live_message.content }}</div>
+
+	{% else %}
+
+		<div class="days-left" style="font-size: 24px; "></div>
+		<div class="days-left-text" style="font-size: 12px;">{{ fields.field_wukuf_ended_message.content }}</div>
+
+	{% endif %}
+
+	<div class="wukuf-date"><span style="display:  block;">{{ fields.field_wukuf_start_date.content }}</span> <span style="display:  block;">{{ fields.field_wukuf_islamic_date.content }}</span>
+	</div>
+</div>
