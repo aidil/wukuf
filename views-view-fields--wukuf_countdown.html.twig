@@ -1,23 +1,44 @@
 <div class="wukuf-countdown">
 	<div class="title" style="letter-spacing:  1px;">Wukuf</div>
-
+	
+	// If wukuf date is still in the future (compare if wukuf date is greater than today) then run this	
 	{% if date_count_status == "future" %}
-
+	
+		// Subtract Wukuf date from todays date to get how many days left, example code:
+		// $future = strtotime('10 August 2019'); //Future wukuf date.
+		// $timefromdb = //source time
+		// $timeleft = $future-$timefromdb;
+		// $daysleft = round((($timeleft/24)/60)/60); 
+		// echo $daysleft;
+		
+		// Output example: "23"
 		<div class="days-left" style="font-size: 24px; ">{{ days_left }}</div>
+		
+		// Output example: "Days Left"
 		<div class="days-left-text" style="font-size: 12px;">{{ fields.field_future_format.content }}</div>
-
+		
+	
+	// If the wukuf date is today (compare if wukuf date is same as today), run this	
 	{% elseif date_count_status == "now" %}
-
+		
+		// Output example: ""
 		<div class="days-left" style="font-size: 24px; "></div>
+		
+		// Output example: "Today"
 		<div class="days-left-text" style="font-size: 12px;">{{ fields.field_wukuf_is_live_message.content }}</div>
 
+	// If the wukuf date has passed, run this
 	{% else %}
-
+		
+		// Output example: ""
 		<div class="days-left" style="font-size: 24px; "></div>
+		
+		// Output example: "Had Past"
 		<div class="days-left-text" style="font-size: 12px;">{{ fields.field_wukuf_ended_message.content }}</div>
 
 	{% endif %}
-
+	
+	// Let people know when is the wukuf date. Output example "10 AUGUST 2019, 9 Zulhijjah 1440H"
 	<div class="wukuf-date"><span style="display:  block;">{{ fields.field_wukuf_start_date.content }}</span> <span style="display:  block;">{{ fields.field_wukuf_islamic_date.content }}</span>
 	</div>
 </div>
